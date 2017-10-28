@@ -8,6 +8,8 @@ There are two major features:
 
 - A Next.js project resides in the `client` directory with a symlink to the output folder of the contract ABI definitions. The Next.js app also provides a simple skeleton for connecting to and interacting with the smart contract on a network.
 
+![truffle-next](https://user-images.githubusercontent.com/943555/32133764-7c16102a-bb93-11e7-9cd3-9a80b7d3f0aa.gif)
+
 # To run this boilerplate
 
 Before anything else, make sure that you have Truffle installed globally (`npm install -g truffle`), and that you have a `testrpc` network running locally.
