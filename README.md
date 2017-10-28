@@ -1,16 +1,20 @@
 # A minimal Truffle and Next.js Boilerplate
 
-[Truffle](https://github.com/trufflesuite/truffle) is great for developing Solidity smart contracts, but building a React frontend for a smart contract is often a chore. [Next.js](https://github.com/zeit/next.js) is one of the easiest ways to build such a frontend and the integration between the two systems.
+[Truffle](https://github.com/trufflesuite/truffle) is great for developing Solidity smart contracts, but building a React frontend for a smart contract is often a chore. [Next.js](https://github.com/zeit/next.js) is one of the easiest ways to build such a frontend and the integration between Truffle and Next.js is what this boilerplate is trying to demonstrate.
 
-In short, this project is a plain `truffle init` with an additional `client` folder where the Next.js project is held. When you run `truffle compile`, a `build` folder with your ABI definitions is generated as usual. Next.js is able to reference these ABI definitions by way of a symlink.
+There are two major features:
+
+- A plain `truffle init` project is used as the base (along with the auto-generated MetaCoin contract).
+
+- A Next.js project resides in the `client` directory with a symlink to the output folder of the contract ABI definitions. The Next.js app also provides a simple skeleton for connecting to and interacting with the smart contract on a network.
 
 # To run this boilerplate
 
+Before anything else, make sure that you have Truffle installed globally (`npm install -g truffle`), and that you have a `testrpc` network running locally.
+
 1. Git clone the project.
-2. Make sure you have Truffle installed globally (`npm install -g truffle`).
-3. Make sure you are running a `testrpc` network locally or MetaMix (or similar) is setup properly.
-4. Run `truffle compile` at the project root to generate your ABI definitions.
-5. Run `truffle deploy` to deploy the default MetaCoin contract.
-6. `cd` into the `client` directory and install node dependencies either with `yarn` or `npm install`.
-7. Run `yarn dev` to run the development server.
-8. Go to `http://localhost:3000` to observe a React app that is fully capable of interacting with your contract's methods.
+2. Run `truffle compile` at the project root to generate your ABI definitions.
+3. Run `truffle deploy` to deploy the default MetaCoin contract.
+4. `cd` into the `client` directory and install node dependencies either with `yarn` or `npm install`.
+5. Run `yarn dev` to run the development server.
+6. Go to `http://localhost:3000` in your browser to observe the resulting React app.
