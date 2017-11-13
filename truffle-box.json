@@ -9,7 +9,7 @@
     "Test contracts": "truffle test"
   },
   "hooks": {
-    "post-unpack": "cd client && npm install"
+    "post-unpack": "cd client && npm install && cd lib && ln -s ../../build/contracts contracts"
   }
 }
 
