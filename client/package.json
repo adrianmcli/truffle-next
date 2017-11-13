@@ -11,6 +11,8 @@
   "dependencies": {
     "next": "^4.1.4",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0"
+    "react-dom": "^16.1.0",
+    "truffle-contract": "^3.0.1",
+    "web3": "^0.20.0"
   }
 }
