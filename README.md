@@ -4,19 +4,46 @@
 
 There are two major features:
 
-- A plain `truffle init` project is used as the base (along with the auto-generated MetaCoin contract).
+- A plain `truffle init` project is used as the base (along with a SimpleStorage example contract).
 
 - A Next.js project resides in the `client` directory with a symlink to the output folder of the contract ABI definitions. The Next.js app also provides a simple skeleton for connecting to and interacting with the smart contract on a network.
 
-![truffle-next](https://user-images.githubusercontent.com/943555/32133764-7c16102a-bb93-11e7-9cd3-9a80b7d3f0aa.gif)
+## Installation
 
-# To run this boilerplate
+1. Install Truffle globally.
+    ```bash
+    npm install -g truffle
+    ```
 
-Before anything else, make sure that you have Truffle installed globally (`npm install -g truffle`), and that you have a `testrpc` network running locally.
+2. Download the box. This also takes care of installing the necessary dependencies.
+    ```bash
+    truffle unbox adrianmcli/truffle-next
+    ```
 
-1. Git clone the project.
-2. Run `truffle compile` at the project root to generate your ABI definitions.
-3. Run `truffle deploy` to deploy the default MetaCoin contract.
-4. `cd` into the `client` directory and install node dependencies either with `yarn` or `npm install`.
-5. Run `yarn dev` to run the development server.
-6. Go to `http://localhost:3000` in your browser to observe the resulting React app.
+3. Run the development console.
+    ```bash
+    truffle develop
+    ```
+
+4. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with `truffle`.
+    ```bash
+    compile
+    migrate
+    ```
+
+5. Run the next.js server for the front-end. Smart contract changes must be manually recompiled and migrated.
+    ```bash
+    // Change directory to the front-end folder
+    cd client
+    // Serves the front-end on http://localhost:3000
+    npm run dev
+    ```
+
+6. Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the development console.
+    ```bash
+    // If inside the development console.
+    test
+
+    // If outside the development console..
+    truffle test
+    ```

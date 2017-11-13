@@ -1,5 +1,5 @@
 import initContract from 'truffle-contract'
-import contractDefinition from '../lib/contracts/MetaCoin.json'
+import contractDefinition from '../lib/contracts/SimpleStorage.json'
 
 export const getAccounts = web3 =>
   new Promise((resolve, reject) => {

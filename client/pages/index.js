@@ -3,7 +3,7 @@ import getWeb3 from '../lib/web3'
 import { getAccounts, getContractInstance } from '../lib/utils'
 
 export default class extends React.Component {
-  state = { web3: null, accounts: null, contractInstance: null, firstBalance: null }
+  state = { web3: null, accounts: null, contractInstance: null, balance: null }
 
   async componentDidMount() {
     try {
@@ -17,10 +17,20 @@ export default class extends React.Component {
     }
   }
 
-  getFirstAccountBalance = async () => {
+  // Stores a given value, 5 by default.
+  storeValue = async () => {
     const { accounts, contractInstance } = this.state
-    const response = await contractInstance.getBalance.call(accounts[0])
-    this.setState({ firstBalance: response.valueOf() })
+    const response = await contractInstance.set(5, { from: accounts[0] })
+    alert("Stored 5 into account")
+  }
+
+  // Get the value from the contract to prove it worked.
+  getValue = async () => {
+    const { accounts, contractInstance } = this.state
+    const response = await contractInstance.get.call({ from: accounts[0] })
+
+    // Update state with the result.
+    this.setState({ balance: response.toNumber() })
   }
 
   render() {
@@ -31,12 +41,13 @@ export default class extends React.Component {
       return (<div>Loading web3, accounts, and contract instance.</div>)
     }
     // App is ready
-    const { firstBalance } = this.state
+    const { balance } = this.state
     return (
       <div>
         <h2>Ready!</h2>
-        <button onClick={this.getFirstAccountBalance}>Get first account balance</button>
-        <div>Balance: {firstBalance ? firstBalance : "N/A"}</div>
+        <button onClick={this.storeValue}>Store 5 into account balance</button>
+        <button onClick={this.getValue}>Get account balance</button>
+        <div>Balance: {balance ? balance : "N/A"}</div>
       </div>
     )
   }
