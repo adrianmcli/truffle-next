@@ -6,13 +6,14 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "link-contracts": "cd lib && ln -s ../../build/contracts contracts"
   },
   "dependencies": {
     "next": "^4.1.4",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "truffle-contract": "^3.0.1",
-    "web3": "^0.20.0"
+    "web3": "^1.0.0-beta.26"
   }
 }
