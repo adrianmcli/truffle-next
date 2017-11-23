@@ -27,4 +27,4 @@ export default () =>
     if (document.readyState === `complete`) {
       resolveWeb3(resolve)
     }
-})
+  })

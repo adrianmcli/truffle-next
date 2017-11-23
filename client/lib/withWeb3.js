@@ -1,3 +1,4 @@
+/* global alert */
 import React from 'react'
 import getWeb3 from './getWeb3'
 import { getAccounts, getContractInstance } from './utils'
@@ -5,7 +6,7 @@ import { getAccounts, getContractInstance } from './utils'
 const withWeb3 = PassedComponent => class extends React.Component {
   state = { web3: null, accounts: null, contract: null }
 
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       const web3 = await getWeb3()
       const accounts = await getAccounts(web3)
@@ -17,7 +18,7 @@ const withWeb3 = PassedComponent => class extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const { web3, accounts, contract } = this.state
     const appReady = web3 && accounts && contract
     // Web3 is still loading, let the user know
