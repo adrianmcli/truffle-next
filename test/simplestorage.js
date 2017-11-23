@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-/* global artifacts contract assert */
 const SimpleStorage = artifacts.require('./SimpleStorage.sol')
 
 contract('SimpleStorage', (accounts) => {

@@ -1,0 +1,17 @@
+{
+  "name": "truffle-next",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "envs": [ "mocha", "browser" ],
+    "globals": [ "artifacts", "contract", "assert" ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "standard": "^10.0.3"
+  }
+}

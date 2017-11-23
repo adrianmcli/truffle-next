@@ -1,4 +1,3 @@
-/* global alert */
 import React from 'react'
 import getWeb3 from './getWeb3'
 import { getAccounts, getContractInstance } from './utils'

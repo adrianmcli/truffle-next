@@ -1,7 +1,8 @@
 {
   "ignore": [
     "README.md",
-    ".gitignore"
+    ".gitignore",
+    "package.json"
   ],
   "commands": {
     "Compile contracts": "truffle compile",
@@ -12,4 +13,3 @@
     "post-unpack": "cd client && npm install && npm run link-contracts"
   }
 }
-

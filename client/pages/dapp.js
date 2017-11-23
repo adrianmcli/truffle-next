@@ -1,4 +1,3 @@
-/* global alert */
 import React from 'react'
 import Link from 'next/link'
 import withWeb3 from '../lib/withWeb3'
