@@ -19,6 +19,8 @@ class Dapp extends React.Component {
   }
 
   render () {
+    // Uncomment to use web3, accounts or the contract:
+    // const { web3, accounts, contract } = this.props
     const { balance = 'N/A' } = this.state
     return (
       <div>
