@@ -8,8 +8,8 @@ class Dapp extends React.Component {
 
   storeValue = async () => {
     const { accounts, contract } = this.props
-    const response = await contract.set(5, { from: accounts[0] })
-    alert("Stored 5 into account")
+    await contract.set(5, { from: accounts[0] })
+    alert('Stored 5 into account')
   }
 
   getValue = async () => {
@@ -18,19 +18,20 @@ class Dapp extends React.Component {
     this.setState({ balance: response.toNumber() })
   }
 
-  render() {
-    const { web3, accounts, contract } = this.props
-    const { balance } = this.state
+  render () {
+    // Uncomment to use web3, accounts or the contract:
+    // const { web3, accounts, contract } = this.props
+    const { balance = 'N/A' } = this.state
     return (
       <div>
         <h1>My Dapp</h1>
 
         <button onClick={this.storeValue}>Store 5 into account balance</button>
         <button onClick={this.getValue}>Get account balance</button>
-        <div>Balance: {balance ? balance : 'N/A'}</div>
+        <div>Balance: {balance}</div>
 
-        <div><Link href="/accounts"><a>My Accounts</a></Link></div>
-        <div><Link href="/"><a>Home</a></Link></div>
+        <div><Link href='/accounts'><a>My Accounts</a></Link></div>
+        <div><Link href='/'><a>Home</a></Link></div>
       </div>
     )
   }
