@@ -1,4 +1,18 @@
-# A minimal Truffle and Next.js Boilerplate
+<h1 align="center">Truffle and Next.js</h1> <br>
+<p align="center">
+  <img alt="comet" src="https://user-images.githubusercontent.com/943555/33169670-574322ee-cffa-11e7-9150-7b720ee0ee24.png" width="120">
+</p>
+<p align="center">Rapid Ethereum Dapp Development</p>
+
+<p align="center">
+  <img alt="made for ethereum" src="https://img.shields.io/badge/made_for-ethereum-771ea5.svg">
+  <img alt="to the moon" src="https://img.shields.io/badge/to_the-moon-fab127.svg">
+  <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue.svg">
+</p>
+
+---
+
+# A Minimal Smart Contract Development Boilerplate
 
 [Truffle](https://github.com/trufflesuite/truffle) is great for developing Solidity smart contracts, but building a React frontend for a smart contract is often a chore. [Next.js](https://github.com/zeit/next.js) is one of the easiest ways to build such a frontend and the integration between Truffle and Next.js is what this boilerplate is trying to demonstrate.
 
