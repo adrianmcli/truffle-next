@@ -1,10 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import withWeb3 from '../lib/withWeb3'
+import Web3Container from '../lib/Web3Container'
 
-// Demonstration of a basic dapp with the withWeb3 higher-order component
 class Dapp extends React.Component {
-  state = { balance: null }
+  state = { balance: undefined }
 
   storeValue = async () => {
     const { accounts, contract } = this.props
@@ -19,8 +18,6 @@ class Dapp extends React.Component {
   }
 
   render () {
-    // Uncomment to use web3, accounts or the contract:
-    // const { web3, accounts, contract } = this.props
     const { balance = 'N/A' } = this.state
     return (
       <div>
@@ -37,4 +34,11 @@ class Dapp extends React.Component {
   }
 }
 
-export default withWeb3(Dapp)
+export default () => (
+  <Web3Container
+    renderLoading={() => <div>Loading Dapp Page...</div>}
+    render={({ accounts, contract }) => (
+      <Dapp accounts={accounts} contract={contract} />
+    )}
+  />
+)

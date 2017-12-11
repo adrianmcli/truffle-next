@@ -7,8 +7,15 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "envs": [ "mocha", "browser" ],
-    "globals": [ "artifacts", "contract", "assert" ]
+    "envs": [
+      "mocha",
+      "browser"
+    ],
+    "globals": [
+      "artifacts",
+      "contract",
+      "assert"
+    ]
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
