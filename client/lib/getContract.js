@@ -1,7 +1,6 @@
 import initContract from 'truffle-contract'
-import contractDefinition from '../lib/contracts/SimpleStorage.json'
 
-const getContract = async web3 => {
+const getContract = async (web3, contractDefinition) => {
   const contract = initContract(contractDefinition)
   contract.setProvider(web3.currentProvider)
 
