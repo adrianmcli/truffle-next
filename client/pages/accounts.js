@@ -1,14 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
-import withWeb3 from '../lib/withWeb3'
+import Web3Container from '../lib/Web3Container'
 
-// Simple demonstration of the withWeb3 higher-order component
-const Accounts = ({ accounts }) =>
+const Accounts = ({ accounts }) => (
   <div>
     <h1>My Accounts</h1>
     <pre>{JSON.stringify(accounts, null, 4)}</pre>
     <div><Link href='/dapp'><a>My Dapp</a></Link></div>
     <div><Link href='/'><a>Home</a></Link></div>
   </div>
+)
 
-export default withWeb3(Accounts)
+export default () => (
+  <Web3Container
+    renderLoading={() => <div>Loading Accounts Page...</div>}
+    render={({ accounts }) => <Accounts accounts={accounts} />}
+  />
+)
