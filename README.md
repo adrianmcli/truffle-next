@@ -63,3 +63,14 @@ For more information on how the frontend works, go read the [README.md](https://
     // If outside the development console..
     truffle test
     ```
+
+## Running with `testrpc`
+
+We highly recommend using `truffle develop` over `testrpc`, but if you want to use `testrpc`, there are a few thing you need to do:
+
+- Change Line 6 of `client/lib/getWeb3.js` to use `localhost:8545` instead of `localhost:9545` so we refer to `testrpc` instead of `truffle develop`.
+- Run your `testrpc` with the following command (because [reasons](https://github.com/trufflesuite/truffle/issues/660#issuecomment-343066784)):
+
+   ```
+   testprc --gasLimit 6721975 --gasPrice 100000000000
+   ```
