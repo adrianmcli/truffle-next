@@ -72,5 +72,5 @@ We highly recommend using `truffle develop` over `testrpc`, but if you want to u
 - Run your `testrpc` with the following command (because [reasons](https://github.com/trufflesuite/truffle/issues/660#issuecomment-343066784)):
 
    ```
-   testprc --gasLimit 6721975 --gasPrice 100000000000
+   testrpc --gasLimit 6721975 --gasPrice 100000000000
    ```
