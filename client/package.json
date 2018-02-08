@@ -10,7 +10,7 @@
     "link-contracts": "cd lib && ln -s ../../build/contracts contracts"
   },
   "dependencies": {
-    "next": "^4.1.4",
+    "next": "^4.2.3",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "truffle-contract": "^3.0.1",
