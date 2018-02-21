@@ -3,7 +3,10 @@ import Link from 'next/link'
 import Web3Container from '../lib/Web3Container'
 
 class Dapp extends React.Component {
-  state = { balance: undefined }
+  state = {
+    balance: undefined,
+    ethBalance: undefined
+  }
 
   storeValue = async () => {
     const { accounts, contract } = this.props
@@ -17,16 +20,23 @@ class Dapp extends React.Component {
     this.setState({ balance: response.toNumber() })
   }
 
+  getEthBalance = async () => {
+    const { web3, accounts } = this.props
+    const balanceInWei = await web3.eth.getBalance(accounts[0])
+    this.setState({ ethBalance: balanceInWei })
+  }
+
   render () {
-    const { balance = 'N/A' } = this.state
+    const { balance = 'N/A', ethBalance = "N/A" } = this.state
     return (
       <div>
         <h1>My Dapp</h1>
 
         <button onClick={this.storeValue}>Store 5 into account balance</button>
-        <button onClick={this.getValue}>Get account balance</button>
+        <button onClick={this.getValue.bind(this)}>Get account balance</button>
+        <button onClick={this.getEthBalance.bind(this)}>Get ether balance</button>
         <div>Balance: {balance}</div>
-
+        <div>EthBalance: {ethBalance}</div>
         <div><Link href='/accounts'><a>My Accounts</a></Link></div>
         <div><Link href='/'><a>Home</a></Link></div>
       </div>
@@ -37,8 +47,8 @@ class Dapp extends React.Component {
 export default () => (
   <Web3Container
     renderLoading={() => <div>Loading Dapp Page...</div>}
-    render={({ accounts, contract }) => (
-      <Dapp accounts={accounts} contract={contract} />
+    render={({ web3, accounts, contract }) => (
+      <Dapp accounts={accounts} contract={contract} web3={web3} />
     )}
   />
 )
