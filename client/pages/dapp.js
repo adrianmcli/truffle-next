@@ -35,8 +35,8 @@ class Dapp extends React.Component {
         <button onClick={this.storeValue}>Store 5 into account balance</button>
         <button onClick={this.getValue}>Get account balance</button>
         <button onClick={this.getEthBalance}>Get ether balance</button>
-        <div>Balance: {balance}</div>
-        <div>EthBalance: {ethBalance}</div>
+        <div>Account Balance: {balance}</div>
+        <div>Ether Balance: {ethBalance}</div>
         <div><Link href='/accounts'><a>My Accounts</a></Link></div>
         <div><Link href='/'><a>Home</a></Link></div>
       </div>
