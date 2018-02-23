@@ -23,7 +23,7 @@ class Dapp extends React.Component {
   getEthBalance = async () => {
     const { web3, accounts } = this.props
     const balanceInWei = await web3.eth.getBalance(accounts[0])
-    this.setState({ ethBalance: balanceInWei })
+    this.setState({ ethBalance: balanceInWei / 1e18 })
   }
 
   render () {
@@ -33,8 +33,8 @@ class Dapp extends React.Component {
         <h1>My Dapp</h1>
 
         <button onClick={this.storeValue}>Store 5 into account balance</button>
-        <button onClick={this.getValue.bind(this)}>Get account balance</button>
-        <button onClick={this.getEthBalance.bind(this)}>Get ether balance</button>
+        <button onClick={this.getValue}>Get account balance</button>
+        <button onClick={this.getEthBalance}>Get ether balance</button>
         <div>Balance: {balance}</div>
         <div>EthBalance: {ethBalance}</div>
         <div><Link href='/accounts'><a>My Accounts</a></Link></div>
