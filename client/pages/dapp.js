@@ -27,7 +27,7 @@ class Dapp extends React.Component {
   }
 
   render () {
-    const { balance = 'N/A', ethBalance = "N/A" } = this.state
+    const { balance = 'N/A', ethBalance = 'N/A' } = this.state
     return (
       <div>
         <h1>My Dapp</h1>
