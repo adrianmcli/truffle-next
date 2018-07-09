@@ -6,25 +6,25 @@ class Dapp extends React.Component {
   state = {
     balance: undefined,
     ethBalance: undefined
-  }
+  };
 
   storeValue = async () => {
     const { accounts, contract } = this.props
-    await contract.set(5, { from: accounts[0] })
+    await contract.methods.set(5).send({ from: accounts[0] })
     alert('Stored 5 into account')
-  }
+  };
 
   getValue = async () => {
     const { accounts, contract } = this.props
-    const response = await contract.get.call({ from: accounts[0] })
-    this.setState({ balance: response.toNumber() })
-  }
+    const response = await contract.methods.get().call({ from: accounts[0] })
+    this.setState({ balance: response })
+  };
 
   getEthBalance = async () => {
     const { web3, accounts } = this.props
     const balanceInWei = await web3.eth.getBalance(accounts[0])
     this.setState({ ethBalance: balanceInWei / 1e18 })
-  }
+  };
 
   render () {
     const { balance = 'N/A', ethBalance = 'N/A' } = this.state
@@ -37,8 +37,16 @@ class Dapp extends React.Component {
         <button onClick={this.getEthBalance}>Get ether balance</button>
         <div>Account Balance: {balance}</div>
         <div>Ether Balance: {ethBalance}</div>
-        <div><Link href='/accounts'><a>My Accounts</a></Link></div>
-        <div><Link href='/'><a>Home</a></Link></div>
+        <div>
+          <Link href='/accounts'>
+            <a>My Accounts</a>
+          </Link>
+        </div>
+        <div>
+          <Link href='/'>
+            <a>Home</a>
+          </Link>
+        </div>
       </div>
     )
   }
