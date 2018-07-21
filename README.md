@@ -64,7 +64,11 @@ For more information on how the frontend works, go read the [README.md](https://
     truffle test
     ```
 
-## Running with `testrpc`
+## Running with MetaMask
+
+Since `truffle develop` exposes the blockchain onto port `9545`, you'll need to add a Custom RPC network of `http://localhost:9545` in your MetaMask to make it work.
+
+## Running with TestRPC
 
 We highly recommend using `truffle develop` over `testrpc`, but if you want to use `testrpc`, there are a couple things you need to do:
 
